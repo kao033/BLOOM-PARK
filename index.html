@@ -1,8 +1,16 @@
+# 將 index.html 加入使用者指定的 meta 描述與標題設定
+new_html = """
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>Loading 畫面</title>
+  <title>新文化城安VR導覽</title>
+  <meta name="description" content="BLOOMPARK 出品">
+  <meta property="og:title" content="新文化城安VR導覽">
+  <meta property="og:description" content="BLOOMPARK 出品">
+  <meta property="og:image" content="https://kao033.github.io/vr-demo/your-character.png">
+  <meta property="og:url" content="https://kao033.github.io/vr-demo/">
+  <meta property="og:type" content="website">
   <style>
     body {
       margin: 0;
@@ -58,3 +66,9 @@
   </script>
 </body>
 </html>
+"""
+
+with open("/mnt/data/index_meta.html", "w", encoding="utf-8") as f:
+    f.write(new_html)
+
+"/mnt/data/index_meta.html"
