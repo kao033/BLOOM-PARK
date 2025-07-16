@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>Loading 畫面</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Courier New', Courier, monospace;
+      background: radial-gradient(circle at center, #d0e8ff 0%, #ffffff 80%);
+      cursor: pointer;
+    }
+
+    .image-container img {
+      width: 280px;
+      max-width: 80vw;
+    }
+
+    .loading-text {
+      font-size: 24px;
+      margin-top: 20px;
+      white-space: pre;
+      text-align: center;
+    }
+  </style>
+</head>
+<body onclick="goNow()">
+  <div class="image-container">
+    <img src="your-character.png" alt="人物圖片">
+  </div>
+  <div class="loading-text" id="loading">Loading</div>
+
+  <script>
+    const loadingEl = document.getElementById('loading');
+    let dots = 0;
+    let jumped = false;
+
+    setInterval(() => {
+      dots = (dots + 1) % 4;
+      loadingEl.textContent = 'Loading' + '.'.repeat(dots);
+    }, 500);
+
+    function goNow() {
+      if (!jumped) {
+        jumped = true;
+        window.location.href = 'mine.html';
+      }
+    }
+
+    setTimeout(() => {
+      goNow();
+    }, 5000);
+  </script>
+</body>
+</html>
